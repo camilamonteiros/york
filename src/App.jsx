@@ -90,7 +90,7 @@ function ExpandBox({ icon, title, color, children }) {
           <span style={{ fontSize: 32 }}>{icon}</span>
           <h3 style={{ fontWeight: 700, fontSize: 22, color: open ? color : C.blue2, transition: "color 0.3s" }}>{title}</h3>
         </div>
-        <span style={{ fontSize: 18, color: C.grayLight, transition: "transform 0.3s", transform: open ? "rotate(180deg)" : "rotate(0)" }}>▼</span>
+        <span style={{ fontSize: 24, color: C.grayLight, transition: "transform 0.3s", transform: open ? "rotate(180deg)" : "rotate(0)" }}>▼</span>
       </div>
       <div style={{ maxHeight: open ? 600 : 0, opacity: open ? 1 : 0, transition: "max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease", marginTop: open ? 16 : 0, overflow: "hidden" }}>{children}</div>
     </div>
@@ -115,14 +115,14 @@ function S01({ visible }) {
       <Petals size={120} opacity={0.08} style={{ position: "absolute", bottom: 90, left: 30 }} />
       <div>
         <Petals size={150} opacity={0.6} style={{ margin: "0 auto 12px" }} />
-        <h1 style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 48, color: C.gray, letterSpacing: "0.14em", marginBottom: 0 }}>
+        <h1 style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 56, color: C.gray, letterSpacing: "0.14em", marginBottom: 0 }}>
           CUIDARTE<span style={{ fontSize: 20, verticalAlign: "super", fontWeight: 300 }}>®</span>
         </h1>
-        <p style={{ fontSize: 18, color: C.grayLight, letterSpacing: "0.22em", marginBottom: 40, fontFamily: F.logo, fontWeight: 300 }}>TERAPIAS INTEGRADAS</p>
+        <p style={{ fontSize: 24, color: C.grayLight, letterSpacing: "0.22em", marginBottom: 40, fontFamily: F.logo, fontWeight: 300 }}>TERAPIAS INTEGRADAS</p>
         <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, margin: "0 auto 28px" }} />
-        <h2 style={{ fontWeight: 700, fontSize: 28, color: C.blue2, lineHeight: 1.35, maxWidth: 540, margin: "0 auto 10px" }}>Diagnóstico de Gestão de<br />Riscos Psicossociais</h2>
-        <p style={{ fontSize: 18, color: C.gray }}>Programa Cuidarte Mind Corporativo — York</p>
-        <p style={{ fontSize: 18, color: C.grayLight, marginTop: 14 }}>Março 2026</p>
+        <h2 style={{ fontWeight: 700, fontSize: 32, color: C.blue2, lineHeight: 1.35, maxWidth: 540, margin: "0 auto 10px" }}>Diagnóstico de Gestão de<br />Riscos Psicossociais</h2>
+        <p style={{ fontSize: 24, color: C.gray }}>Programa Cuidarte Mind Corporativo — York</p>
+        <p style={{ fontSize: 24, color: C.grayLight, marginTop: 14 }}>Março 2026</p>
       </div>
     </div>
   );
@@ -159,14 +159,14 @@ function S03({ visible }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, flex: 1 }}>
         {dims.map((d, i) => (
           <ExpandBox key={i} icon={DIM_ICONS[d.key]} title={DIM_LABELS[d.key]} color={DIM_COLORS[d.key]}>
-            <p style={{ fontSize: 18, lineHeight: 1.55, color: C.gray, marginBottom: 10 }}>{d.desc}</p>
+            <p style={{ fontSize: 24, lineHeight: 1.55, color: C.gray, marginBottom: 10 }}>{d.desc}</p>
             <div style={{ background: `${DIM_COLORS[d.key]}0a`, borderRadius: 8, padding: "8px 12px", marginBottom: 8 }}>
-              <span style={{ fontSize: 16, fontWeight: 600, color: DIM_COLORS[d.key] }}>Objetivos: </span>
-              <span style={{ fontSize: 16, color: C.grayDark }}>{d.objectives}</span>
+              <span style={{ fontSize: 20, fontWeight: 600, color: DIM_COLORS[d.key] }}>Objetivos: </span>
+              <span style={{ fontSize: 20, color: C.grayDark }}>{d.objectives}</span>
             </div>
             <div style={{ background: `${DIM_COLORS[d.key]}0a`, borderRadius: 8, padding: "8px 12px" }}>
-              <span style={{ fontSize: 16, fontWeight: 600, color: DIM_COLORS[d.key] }}>Dinâmica: </span>
-              <span style={{ fontSize: 16, color: C.grayDark }}>{d.dynamics}</span>
+              <span style={{ fontSize: 20, fontWeight: 600, color: DIM_COLORS[d.key] }}>Dinâmica: </span>
+              <span style={{ fontSize: 20, color: C.grayDark }}>{d.dynamics}</span>
             </div>
           </ExpandBox>
         ))}
@@ -175,7 +175,7 @@ function S03({ visible }) {
         {[{ c: C.great, l: "≥ 5.0 Altamente Favorável" }, { c: C.good, l: "4.5–4.9 Favorável" }, { c: C.warn, l: "4.0–4.4 Atenção" }, { c: C.danger, l: "< 4.0 Monitoramento" }].map((s, i) => (
           <span key={i} style={{ display: "flex", alignItems: "center", gap: 5 }}>
             <span style={{ width: 8, height: 8, borderRadius: 4, background: s.c }} />
-            <span style={{ fontSize: 16, color: C.gray }}>{s.l}</span>
+            <span style={{ fontSize: 20, color: C.gray }}>{s.l}</span>
           </span>
         ))}
       </div>
@@ -198,22 +198,22 @@ function UnitSlide({ visible, unit, index }) {
       <p style={S.sub}>{u.period}</p>
       <div style={{ display: "flex", gap: 18, marginBottom: 14 }}>
         <div style={{ ...S.card, flex: "1 1 55%" }}>
-          <h3 style={{ fontWeight: 600, fontSize: 18, color: C.blue2, marginBottom: 14 }}>Indicadores Principais</h3>
+          <h3 style={{ fontWeight: 600, fontSize: 24, color: C.blue2, marginBottom: 14 }}>Indicadores Principais</h3>
           {dims.map((d, i) => <GaugeBar key={d} value={u[d]} color={colors[i]} label={DIM_LABELS[d]} delay={i * 150} run={visible} />)}
         </div>
         <div style={{ flex: "0 0 190px", display: "flex", flexDirection: "column", gap: 12 }}>
           <div style={{ ...S.card, textAlign: "center", padding: "14px" }}>
-            <div style={{ fontSize: 16, color: C.gray, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 2 }}>Adesão</div>
+            <div style={{ fontSize: 20, color: C.gray, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 2 }}>Adesão</div>
             <ResponsiveContainer width="100%" height={90}>
               <PieChart><Pie data={pieData} dataKey="value" cx="50%" cy="50%" innerRadius={28} outerRadius={40} startAngle={90} endAngle={-270} paddingAngle={2}><Cell fill={u.color} /><Cell fill="#E8EDE0" /></Pie></PieChart>
             </ResponsiveContainer>
-            <div style={{ fontWeight: 700, fontSize: 26, color: u.color, marginTop: -2 }}>{u.participation}%</div>
-            <div style={{ fontSize: 16, color: C.gray }}>{u.participationLabel}</div>
+            <div style={{ fontWeight: 700, fontSize: 32, color: u.color, marginTop: -2 }}>{u.participation}%</div>
+            <div style={{ fontSize: 20, color: C.gray }}>{u.participationLabel}</div>
           </div>
           <div style={{ ...S.card, textAlign: "center", background: `linear-gradient(135deg, ${u.color}06, ${u.color}12)`, borderLeft: `3px solid ${u.color}` }}>
-            <div style={{ fontSize: 16, color: u.color, fontWeight: 600 }}>Média Geral</div>
-            <div style={{ fontWeight: 700, fontSize: 34, color: u.color }}>{((u.rel + u.inf + u.dem + u.mae) / 4).toFixed(1)}</div>
-            <div style={{ fontSize: 16, color: C.gray }}>de 7.0</div>
+            <div style={{ fontSize: 20, color: u.color, fontWeight: 600 }}>Média Geral</div>
+            <div style={{ fontWeight: 700, fontSize: 42, color: u.color }}>{((u.rel + u.inf + u.dem + u.mae) / 4).toFixed(1)}</div>
+            <div style={{ fontSize: 20, color: C.gray }}>de 7.0</div>
           </div>
         </div>
       </div>
@@ -223,8 +223,8 @@ function UnitSlide({ visible, unit, index }) {
         <Expandable title={`🔴 Riscos Prioritários (${u.risks.length})`} color={C.danger}><BulletList items={u.risks} color={C.danger} /></Expandable>
         <Expandable title={`🎯 Ações e Estratégias (${u.actions.length})`} color={C.blue1}><BulletList items={u.actions} color={C.blue1} /></Expandable>
         <div style={{ marginTop: 6, padding: "8px 12px", background: `${u.color}08`, borderRadius: 8, borderLeft: `3px solid ${u.color}` }}>
-          <span style={{ fontSize: 18, fontWeight: 600, color: u.color }}>Perspectiva: </span>
-          <span style={{ fontSize: 18, color: C.grayDark, lineHeight: 1.5 }}>{u.outlook}</span>
+          <span style={{ fontSize: 24, fontWeight: 600, color: u.color }}>Perspectiva: </span>
+          <span style={{ fontSize: 24, color: C.grayDark, lineHeight: 1.5 }}>{u.outlook}</span>
         </div>
       </div>
     </div>
@@ -246,14 +246,14 @@ function S08({ visible }) {
             <div key={di} style={{ ...S.card, padding: "16px 20px" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 22 }}>{DIM_ICONS[dk]}</span>
+                  <span style={{ fontSize: 28 }}>{DIM_ICONS[dk]}</span>
                   <div>
-                    <span style={{ fontWeight: 600, fontSize: 16, color: DIM_COLORS[dk], letterSpacing: "0.06em" }}>{dd.dim}</span>
-                    <div style={{ fontWeight: 600, fontSize: 18, color: C.grayDark }}>{dd.fullLabel}</div>
+                    <span style={{ fontWeight: 600, fontSize: 20, color: DIM_COLORS[dk], letterSpacing: "0.06em" }}>{dd.dim}</span>
+                    <div style={{ fontWeight: 600, fontSize: 24, color: C.grayDark }}>{dd.fullLabel}</div>
                   </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontWeight: 700, fontSize: 22, color: st.color }}>{dd.avg}</div>
+                  <div style={{ fontWeight: 700, fontSize: 28, color: st.color }}>{dd.avg}</div>
                   <Badge value={dd.avg} />
                 </div>
               </div>
@@ -263,8 +263,8 @@ function S08({ visible }) {
                   return (
                     <div key={vi} style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-                        <span style={{ fontSize: 16, fontWeight: 500, color: C.gray }}>{v.name}</span>
-                        <span style={{ fontSize: 18, fontWeight: 700, color: v.color }}>{v.value}</span>
+                        <span style={{ fontSize: 20, fontWeight: 500, color: C.gray }}>{v.name}</span>
+                        <span style={{ fontSize: 24, fontWeight: 700, color: v.color }}>{v.value}</span>
                       </div>
                       <div style={{ height: 8, borderRadius: 4, background: "#EEF2E8", overflow: "hidden" }}>
                         <div style={{ height: "100%", borderRadius: 4, background: v.color, width: visible ? `${pct}%` : "0%", transition: `width 1s cubic-bezier(0.22,1,0.36,1) ${di * 150 + vi * 80}ms` }} />
@@ -278,8 +278,8 @@ function S08({ visible }) {
         })}
       </div>
       <div style={{ ...S.card, marginTop: 12, background: "#FFF8E1", borderLeft: `4px solid ${C.warn}`, padding: "10px 16px" }}>
-        <span style={{ fontWeight: 600, color: C.warn, fontSize: 18 }}>Padrão identificado: </span>
-        <span style={{ fontSize: 18, color: C.grayDark }}>Significado do trabalho é o ponto mais forte (5,2–5,5). Demandas laborais é universalmente o mais baixo (3,5–4,1), exigindo ações prioritárias.</span>
+        <span style={{ fontWeight: 600, color: C.warn, fontSize: 24 }}>Padrão identificado: </span>
+        <span style={{ fontSize: 24, color: C.grayDark }}>Significado do trabalho é o ponto mais forte (5,2–5,5). Demandas laborais é universalmente o mais baixo (3,5–4,1), exigindo ações prioritárias.</span>
       </div>
     </div>
   );
@@ -302,19 +302,19 @@ function S09({ visible }) {
         <ResponsiveContainer width="100%" height={270}>
           <BarChart data={barData} barCategoryGap="18%" barGap={3}>
             <CartesianGrid strokeDasharray="3 3" stroke="#E8EDE0" vertical={false} />
-            <XAxis dataKey="dim" tick={{ fontSize: 18, fontWeight: 600, fill: C.grayDark }} axisLine={{ stroke: "#E0E7D8" }} tickLine={false} />
-            <YAxis domain={[0, 7]} tick={{ fontSize: 16, fill: C.gray }} axisLine={false} tickLine={false} />
+            <XAxis dataKey="dim" tick={{ fontSize: 24, fontWeight: 600, fill: C.grayDark }} axisLine={{ stroke: "#E0E7D8" }} tickLine={false} />
+            <YAxis domain={[0, 7]} tick={{ fontSize: 20, fill: C.gray }} axisLine={false} tickLine={false} />
             {UNITS.map(u => (<Bar key={u.name} dataKey={u.name} fill={u.color} radius={[4, 4, 0, 0]} maxBarSize={34}>{barData.map((_, j) => <Cell key={j} fillOpacity={0.88} />)}</Bar>))}
             <Tooltip content={<CTooltip />} cursor={false} />
-            <Legend wrapperStyle={{ fontSize: 18, paddingTop: 6 }} />
+            <Legend wrapperStyle={{ fontSize: 24, paddingTop: 6 }} />
           </BarChart>
         </ResponsiveContainer>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
         {insights.map((p, i) => (
           <div key={i} style={{ ...S.card, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start" }}>
-            <span style={{ fontSize: 20 }}>{p.icon}</span>
-            <span style={{ fontSize: 18, lineHeight: 1.55, color: C.grayDark }}>{p.text}</span>
+            <span style={{ fontSize: 28 }}>{p.icon}</span>
+            <span style={{ fontSize: 24, lineHeight: 1.55, color: C.grayDark }}>{p.text}</span>
           </div>
         ))}
       </div>
@@ -337,14 +337,14 @@ function S10({ visible }) {
       <div style={{ display: "flex", flexDirection: "column", gap: 12, flex: 1 }}>
         {risks.map((r, i) => (
           <div key={i} style={{ ...S.card, display: "flex", gap: 14, alignItems: "flex-start", borderLeft: `4px solid ${r.sColor}`, transition: "transform 0.2s" }} onMouseEnter={e => e.currentTarget.style.transform = "translateX(3px)"} onMouseLeave={e => e.currentTarget.style.transform = "none"}>
-            <div style={{ fontSize: 30, minWidth: 32, textAlign: "center", paddingTop: 2 }}>{r.icon}</div>
+            <div style={{ fontSize: 42, minWidth: 32, textAlign: "center", paddingTop: 2 }}>{r.icon}</div>
             <div style={{ flex: 1 }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4 }}>
-                <h3 style={{ fontWeight: 600, fontSize: 18, color: C.grayDark }}>{r.title}</h3>
-                <span style={{ fontSize: 16, fontWeight: 600, padding: "2px 8px", borderRadius: 10, background: `${r.sColor}18`, color: r.sColor }}>Severidade: {r.severity}</span>
+                <h3 style={{ fontWeight: 600, fontSize: 24, color: C.grayDark }}>{r.title}</h3>
+                <span style={{ fontSize: 20, fontWeight: 600, padding: "2px 8px", borderRadius: 10, background: `${r.sColor}18`, color: r.sColor }}>Severidade: {r.severity}</span>
               </div>
-              <p style={{ fontSize: 18, lineHeight: 1.55, color: C.gray, marginBottom: 3 }}>{r.desc}</p>
-              <span style={{ fontSize: 16, color: C.blue1, fontWeight: 500 }}>📍 {r.units}</span>
+              <p style={{ fontSize: 24, lineHeight: 1.55, color: C.gray, marginBottom: 3 }}>{r.desc}</p>
+              <span style={{ fontSize: 20, color: C.blue1, fontWeight: 500 }}>📍 {r.units}</span>
             </div>
           </div>
         ))}
@@ -369,14 +369,14 @@ function S11({ visible }) {
       <p style={S.sub}>Clique na unidade para visualizar ações específicas</p>
       <div style={{ display: "flex", gap: 6, marginBottom: 14 }}>
         {UNITS.map((unit, i) => (
-          <button key={i} onClick={() => setSel(i)} style={{ fontFamily: F.body, fontWeight: sel === i ? 700 : 400, fontSize: 18, padding: "7px 18px", borderRadius: 20, border: "none", cursor: "pointer", background: sel === i ? unit.color : "transparent", color: sel === i ? "#fff" : C.gray, transition: "all 0.25s" }}>{unit.name}</button>
+          <button key={i} onClick={() => setSel(i)} style={{ fontFamily: F.body, fontWeight: sel === i ? 700 : 400, fontSize: 24, padding: "7px 18px", borderRadius: 20, border: "none", cursor: "pointer", background: sel === i ? unit.color : "transparent", color: sel === i ? "#fff" : C.gray, transition: "all 0.25s" }}>{unit.name}</button>
         ))}
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, flex: 1 }}>
-        <div style={{ ...S.card, borderTop: `3px solid ${C.danger}` }}><h3 style={{ fontWeight: 600, fontSize: 18, color: C.danger, marginBottom: 10 }}>🎯 Ações Prioritárias</h3><BulletList items={steps.p} color={C.danger} /></div>
-        <div style={{ ...S.card, borderTop: `3px solid ${C.blue1}` }}><h3 style={{ fontWeight: 600, fontSize: 18, color: C.blue1, marginBottom: 10 }}>📚 Capacitações e Treinamentos</h3><BulletList items={steps.t} color={C.blue1} /></div>
-        <div style={{ ...S.card, borderTop: `3px solid ${C.teal}` }}><h3 style={{ fontWeight: 600, fontSize: 18, color: C.teal, marginBottom: 10 }}>👂 Espaços de Escuta e Feedback</h3><BulletList items={steps.l} color={C.teal} /></div>
-        <div style={{ ...S.card, borderTop: `3px solid ${C.green2}` }}><h3 style={{ fontWeight: 600, fontSize: 18, color: C.green2, marginBottom: 10 }}>🏗️ Melhoria do Ambiente</h3><BulletList items={steps.e} color={C.green2} /></div>
+        <div style={{ ...S.card, borderTop: `3px solid ${C.danger}` }}><h3 style={{ fontWeight: 600, fontSize: 24, color: C.danger, marginBottom: 10 }}>🎯 Ações Prioritárias</h3><BulletList items={steps.p} color={C.danger} /></div>
+        <div style={{ ...S.card, borderTop: `3px solid ${C.blue1}` }}><h3 style={{ fontWeight: 600, fontSize: 24, color: C.blue1, marginBottom: 10 }}>📚 Capacitações e Treinamentos</h3><BulletList items={steps.t} color={C.blue1} /></div>
+        <div style={{ ...S.card, borderTop: `3px solid ${C.teal}` }}><h3 style={{ fontWeight: 600, fontSize: 24, color: C.teal, marginBottom: 10 }}>👂 Espaços de Escuta e Feedback</h3><BulletList items={steps.l} color={C.teal} /></div>
+        <div style={{ ...S.card, borderTop: `3px solid ${C.green2}` }}><h3 style={{ fontWeight: 600, fontSize: 24, color: C.green2, marginBottom: 10 }}>🏗️ Melhoria do Ambiente</h3><BulletList items={steps.e} color={C.green2} /></div>
       </div>
     </div>
   );
@@ -399,26 +399,26 @@ function S12({ visible }) {
         {goals.map((g, i) => (
           <div key={i} style={{ ...S.card, padding: "14px 18px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
-              <span style={{ fontSize: 22 }}>{g.icon}</span>
-              <h3 style={{ fontWeight: 600, fontSize: 18, color: C.blue2 }}>{g.metric}</h3>
+              <span style={{ fontSize: 28 }}>{g.icon}</span>
+              <h3 style={{ fontWeight: 600, fontSize: 24, color: C.blue2 }}>{g.metric}</h3>
             </div>
             <div style={{ display: "flex", gap: 10, marginBottom: 8 }}>
               <div style={{ background: "#FFF3E0", borderRadius: 8, padding: "5px 10px", flex: 1, textAlign: "center" }}>
-                <div style={{ fontSize: 14, color: C.warn, fontWeight: 600 }}>ATUAL</div>
-                <div style={{ fontWeight: 700, fontSize: 18, color: C.warn }}>{g.current}</div>
+                <div style={{ fontSize: 18, color: C.warn, fontWeight: 600 }}>ATUAL</div>
+                <div style={{ fontWeight: 700, fontSize: 24, color: C.warn }}>{g.current}</div>
               </div>
-              <div style={{ display: "flex", alignItems: "center", color: C.grayLight, fontSize: 18 }}>→</div>
+              <div style={{ display: "flex", alignItems: "center", color: C.grayLight, fontSize: 24 }}>→</div>
               <div style={{ background: "#E8F5E9", borderRadius: 8, padding: "5px 10px", flex: 1, textAlign: "center" }}>
-                <div style={{ fontSize: 14, color: C.good, fontWeight: 600 }}>META</div>
-                <div style={{ fontWeight: 700, fontSize: 18, color: C.good }}>{g.target}</div>
+                <div style={{ fontSize: 18, color: C.good, fontWeight: 600 }}>META</div>
+                <div style={{ fontWeight: 700, fontSize: 24, color: C.good }}>{g.target}</div>
               </div>
             </div>
-            <p style={{ fontSize: 16, color: C.gray }}>{g.desc}</p>
+            <p style={{ fontSize: 20, color: C.gray }}>{g.desc}</p>
           </div>
         ))}
       </div>
       <div style={{ ...S.card }}>
-        <h3 style={{ fontWeight: 600, fontSize: 18, color: C.blue2, marginBottom: 10 }}>🔧 Ferramentas de Monitoramento</h3>
+        <h3 style={{ fontWeight: 600, fontSize: 24, color: C.blue2, marginBottom: 10 }}>🔧 Ferramentas de Monitoramento</h3>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2 }}>
           <BulletList items={tools.slice(0, 3)} color={C.teal} />
           <BulletList items={tools.slice(3)} color={C.teal} />
@@ -434,25 +434,25 @@ function S13({ visible }) {
   return (
     <div style={{ ...S.slide(C.white), opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(30px)", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
       <Petals size={120} opacity={0.45} style={{ margin: "0 auto 20px" }} />
-      <h2 style={{ fontWeight: 700, fontSize: 26, color: C.blue2, maxWidth: 500, lineHeight: 1.4, marginBottom: 12 }}>6. Encerramento e Compromisso</h2>
+      <h2 style={{ fontWeight: 700, fontSize: 32, color: C.blue2, maxWidth: 500, lineHeight: 1.4, marginBottom: 12 }}>6. Encerramento e Compromisso</h2>
       <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, margin: "0 auto 20px" }} />
       <div style={{ ...S.card, maxWidth: 520, textAlign: "left", margin: "0 auto 20px" }}>
         {commitments.map((c, i) => (
           <div key={i} style={{ display: "flex", gap: 10, marginBottom: 8, alignItems: "flex-start" }}>
             <span style={{ width: 6, height: 6, borderRadius: 3, background: i < 2 ? C.blue1 : C.teal, marginTop: 6, flexShrink: 0 }} />
-            <span style={{ fontSize: 18, lineHeight: 1.6, color: C.grayDark }}>{c}</span>
+            <span style={{ fontSize: 24, lineHeight: 1.6, color: C.grayDark }}>{c}</span>
           </div>
         ))}
       </div>
-      <p style={{ fontSize: 18, color: C.gray, maxWidth: 420, lineHeight: 1.7, fontStyle: "italic" }}>
+      <p style={{ fontSize: 24, color: C.gray, maxWidth: 420, lineHeight: 1.7, fontStyle: "italic" }}>
         "Construindo juntos uma cultura de cuidado, comunicação e responsabilidade mútua."
       </p>
       <div style={{ marginTop: 28 }}>
         <Petals size={80} opacity={0.4} style={{ margin: "0 auto 8px" }} />
-        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 22, color: C.gray, letterSpacing: "0.14em" }}>CUIDARTE<span style={{ fontSize: 16, verticalAlign: "super" }}>®</span></p>
-        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 14, color: C.grayLight, letterSpacing: "0.22em" }}>TERAPIAS INTEGRADAS</p>
+        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 28, color: C.gray, letterSpacing: "0.14em" }}>CUIDARTE<span style={{ fontSize: 16, verticalAlign: "super" }}>®</span></p>
+        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 18, color: C.grayLight, letterSpacing: "0.22em" }}>TERAPIAS INTEGRADAS</p>
       </div>
-      <p style={{ fontSize: 16, color: C.grayLight, marginTop: 16 }}>Cuidarte Mind Corporativo — York · Março 2026</p>
+      <p style={{ fontSize: 20, color: C.grayLight, marginTop: 16 }}>Cuidarte Mind Corporativo — York · Março 2026</p>
     </div>
   );
 }
@@ -517,9 +517,9 @@ export default function App() {
           <div style={{ height: "100%", width: `${((cur + 1) / SLIDES.length) * 100}%`, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, transition: "width 0.4s ease" }} />
         </div>
         {/* slide counter */}
-        <div style={{ position: "absolute", top: 10, right: 20, fontSize: 16, color: C.grayLight, zIndex: 101, fontWeight: 500, textAlign: "right" }}>
+        <div style={{ position: "absolute", top: 10, right: 20, fontSize: 20, color: C.grayLight, zIndex: 101, fontWeight: 500, textAlign: "right" }}>
           <div>{cur + 1} / {SLIDES.length}</div>
-          <div style={{ fontSize: 14, opacity: 0.7 }}>{SLIDES[cur].title}</div>
+          <div style={{ fontSize: 18, opacity: 0.7 }}>{SLIDES[cur].title}</div>
         </div>
         {/* slides */}
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
