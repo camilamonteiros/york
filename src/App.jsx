@@ -457,6 +457,29 @@ function S13({ visible }) {
   );
 }
 
+/* ── SLIDE 14 — MENTIMETER ── */
+function S14({ visible }) {
+  return (
+    <div style={{ ...S.slide(C.white), opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(30px)", alignItems: "center", justifyContent: "center", gap: 24 }}>
+      <div style={{ textAlign: "center" }}>
+        <Petals size={60} opacity={0.35} style={{ margin: "0 auto 12px" }} />
+        <h2 style={{ ...S.h1, textAlign: "center" }}>Sua opinião importa</h2>
+        <p style={{ ...S.sub, textAlign: "center" }}>Participe da enquete ao vivo</p>
+      </div>
+      <div style={{ position: "relative", paddingBottom: "56.25%", paddingTop: 35, height: 0, overflow: "hidden", width: "100%", maxWidth: 720, borderRadius: 14, boxShadow: "0 2px 24px rgba(26,82,118,0.10)" }}>
+        <iframe
+          sandbox="allow-popups allow-scripts allow-same-origin allow-presentation"
+          allowFullScreen
+          allowTransparency
+          frameBorder="0"
+          src="https://www.mentimeter.com/app/presentation/al5jq3zmrhhhia6zhxxir8k1s2zu7vhz/embed"
+          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+        />
+      </div>
+    </div>
+  );
+}
+
 /* ── MAIN ── */
 const SLIDES = [
   { comp: S01, title: "Capa" }, { comp: S02, title: "1. Introdução" }, { comp: S03, title: "Dimensões" },
@@ -466,18 +489,59 @@ const SLIDES = [
   { comp: (p) => <UnitSlide {...p} unit={UNITS[3]} index={3} />, title: "2.4 Picos" },
   { comp: S08, title: "3. Comparativo" }, { comp: S09, title: "3. Barras" }, { comp: S10, title: "Riscos" },
   { comp: S11, title: "4. Próximos Passos" }, { comp: S12, title: "5. Metas" }, { comp: S13, title: "6. Encerramento" },
+  { comp: S14, title: "Enquete" },
 ];
+
+/* ── VIEWPORT SCALING ── */
+const BASE_W = 1280;
+const BASE_H = 720;
+
+function useScale() {
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    const update = () => {
+      const s = Math.min(window.innerWidth / BASE_W, window.innerHeight / BASE_H);
+      setScale(s);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return scale;
+}
 
 export default function App() {
   const [cur, setCur] = useState(0);
+  const scale = useScale();
   const go = useCallback((d) => setCur(c => Math.max(0, Math.min(SLIDES.length - 1, c + d))), []);
   useEffect(() => { const h = (e) => { if (e.key === "ArrowRight" || e.key === "ArrowDown" || e.key === " ") { e.preventDefault(); go(1); } if (e.key === "ArrowLeft" || e.key === "ArrowUp") { e.preventDefault(); go(-1); } }; window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h); }, [go]);
+
   return (
-    <div style={S.app}>
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: 3, zIndex: 101, background: "#E8EDE0" }}><div style={{ height: "100%", width: `${((cur + 1) / SLIDES.length) * 100}%`, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, transition: "width 0.4s ease" }} /></div>
-      <div style={{ position: "fixed", top: 10, right: 20, fontSize: 10, color: C.grayLight, zIndex: 101, fontWeight: 500, textAlign: "right" }}><div>{cur + 1} / {SLIDES.length}</div><div style={{ fontSize: 9, opacity: 0.7 }}>{SLIDES[cur].title}</div></div>
-      <div style={{ position: "relative", width: "100%", height: "100%" }}>{SLIDES.map((sd, i) => { const Comp = sd.comp; return <div key={i} style={{ pointerEvents: i === cur ? "auto" : "none" }}><Comp visible={i === cur} /></div>; })}</div>
-      <div style={S.nav}><button onClick={() => go(-1)} style={{ ...S.btn, opacity: cur === 0 ? 0.3 : 1 }} disabled={cur === 0}>‹</button><div style={{ display: "flex", gap: 4, margin: "0 10px", alignItems: "center" }}>{SLIDES.map((sd, i) => <button key={i} onClick={() => setCur(i)} style={S.dot(i === cur)} title={sd.title} />)}</div><button onClick={() => go(1)} style={{ ...S.btn, opacity: cur === SLIDES.length - 1 ? 0.3 : 1 }} disabled={cur === SLIDES.length - 1}>›</button></div>
+    <div style={{ width: "100vw", height: "100vh", overflow: "hidden", background: C.bg, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: BASE_W, height: BASE_H, transform: `scale(${scale})`, transformOrigin: "center center", position: "relative", fontFamily: F.body, color: C.grayDark, overflow: "hidden" }}>
+        {/* progress bar */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, zIndex: 101, background: "#E8EDE0" }}>
+          <div style={{ height: "100%", width: `${((cur + 1) / SLIDES.length) * 100}%`, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, transition: "width 0.4s ease" }} />
+        </div>
+        {/* slide counter */}
+        <div style={{ position: "absolute", top: 10, right: 20, fontSize: 10, color: C.grayLight, zIndex: 101, fontWeight: 500, textAlign: "right" }}>
+          <div>{cur + 1} / {SLIDES.length}</div>
+          <div style={{ fontSize: 9, opacity: 0.7 }}>{SLIDES[cur].title}</div>
+        </div>
+        {/* slides */}
+        <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          {SLIDES.map((sd, i) => { const Comp = sd.comp; return <div key={i} style={{ pointerEvents: i === cur ? "auto" : "none" }}><Comp visible={i === cur} /></div>; })}
+        </div>
+        {/* nav */}
+        <div style={{ ...S.nav, position: "absolute" }}>
+          <button onClick={() => go(-1)} style={{ ...S.btn, opacity: cur === 0 ? 0.3 : 1 }} disabled={cur === 0}>‹</button>
+          <div style={{ display: "flex", gap: 4, margin: "0 10px", alignItems: "center" }}>
+            {SLIDES.map((sd, i) => <button key={i} onClick={() => setCur(i)} style={S.dot(i === cur)} title={sd.title} />)}
+          </div>
+          <button onClick={() => go(1)} style={{ ...S.btn, opacity: cur === SLIDES.length - 1 ? 0.3 : 1 }} disabled={cur === SLIDES.length - 1}>›</button>
+        </div>
+      </div>
     </div>
   );
 }
+
