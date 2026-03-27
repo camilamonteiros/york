@@ -239,18 +239,28 @@ function S08({ visible }) {
         {dimData.map((dd, di) => {
           const st = statusOf(dd.avg);
           const dk = ["rel","inf","dem","mae"][di];
+          const isDEM = dk === "dem";
           return (
-            <div key={di} style={{ ...S.card, padding: "16px 20px" }}>
+            <div key={di} style={{
+              ...S.card,
+              padding: isDEM ? "14px 20px" : "16px 20px",
+              background: isDEM ? "#FDECEA" : C.white,
+              border: isDEM ? `2px solid ${C.danger}` : "1px solid rgba(26,82,118,0.05)",
+              borderLeft: isDEM ? `6px solid ${C.danger}` : "1px solid rgba(26,82,118,0.05)",
+              boxShadow: isDEM ? "0 4px 20px rgba(232,115,74,0.15)" : "0 2px 16px rgba(26,82,118,0.05)",
+            }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ fontSize: 28 }}>{DIM_ICONS[dk]}</span>
+                  <span style={{ fontSize: isDEM ? 36 : 28 }}>{DIM_ICONS[dk]}</span>
                   <div>
-                    <span style={{ fontWeight: 600, fontSize: 20, color: DIM_COLORS[dk], letterSpacing: "0.06em" }}>{dd.dim}</span>
-                    <div style={{ fontWeight: 600, fontSize: 24, color: C.grayDark }}>{dd.fullLabel}</div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ fontWeight: isDEM ? 800 : 600, fontSize: isDEM ? 22 : 20, color: DIM_COLORS[dk], letterSpacing: "0.06em" }}>{dd.dim}</span>
+                    </div>
+                    <div style={{ fontWeight: isDEM ? 700 : 600, fontSize: isDEM ? 26 : 24, color: isDEM ? "#7A2E1A" : C.grayDark }}>{dd.fullLabel}</div>
                   </div>
                 </div>
                 <div style={{ textAlign: "right" }}>
-                  <div style={{ fontWeight: 700, fontSize: 28, color: st.color }}>{dd.avg}</div>
+                  <div style={{ fontWeight: 700, fontSize: isDEM ? 34 : 28, color: st.color }}>{dd.avg}</div>
                   <Badge value={dd.avg} />
                 </div>
               </div>
@@ -260,11 +270,11 @@ function S08({ visible }) {
                   return (
                     <div key={vi} style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
-                        <span style={{ fontSize: 18, fontWeight: 500, color: C.gray }}>{v.name}</span>
-                        <span style={{ fontSize: 24, fontWeight: 700, color: v.color }}>{v.value}</span>
+                        <span style={{ fontSize: 18, fontWeight: 500, color: isDEM ? "#9B3E2A" : C.gray }}>{v.name}</span>
+                        <span style={{ fontSize: isDEM ? 26 : 24, fontWeight: 700, color: isDEM ? C.danger : v.color }}>{v.value}</span>
                       </div>
-                      <div style={{ height: 8, borderRadius: 4, background: "#EEF2E8", overflow: "hidden" }}>
-                        <div style={{ height: "100%", borderRadius: 4, background: v.color, width: visible ? `${pct}%` : "0%", transition: `width 1s cubic-bezier(0.22,1,0.36,1) ${di * 150 + vi * 80}ms` }} />
+                      <div style={{ height: isDEM ? 10 : 8, borderRadius: 4, background: isDEM ? "#F5C6C0" : "#EEF2E8", overflow: "hidden" }}>
+                        <div style={{ height: "100%", borderRadius: 4, background: isDEM ? C.danger : v.color, width: visible ? `${pct}%` : "0%", transition: `width 1s cubic-bezier(0.22,1,0.36,1) ${di * 150 + vi * 80}ms` }} />
                       </div>
                     </div>
                   );
@@ -306,28 +316,13 @@ function S09({ visible }) {
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <div style={{ ...S.card, marginBottom: 10, background: "#FDECEA", border: "2px solid #E8734A", borderLeft: `5px solid ${C.danger}`, padding: "12px 18px", display: "flex", alignItems: "center", gap: 14 }}>
-        <span style={{ fontSize: 36 }}>⚡</span>
-        <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
-            <span style={{ fontWeight: 800, fontSize: 22, color: C.danger, letterSpacing: "0.08em" }}>DEM — Demandas Laborais</span>
-            <span style={{ background: C.danger, color: "#fff", borderRadius: 20, padding: "2px 12px", fontSize: 18, fontWeight: 700 }}>Pior indicador universal</span>
-          </div>
-          <span style={{ fontSize: 20, color: "#9B3E2A", lineHeight: 1.5 }}>
-            A dimensão <strong>Demandas Laborais</strong> é o indicador mais baixo em <strong>todas as unidades</strong> — variando de <strong>3,5 (Floriano)</strong> a <strong>4,1 (Teresina)</strong> — exigindo <strong>ações prioritárias e imediatas</strong> em toda a rede York.
-          </span>
-        </div>
-      </div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-        {insights.map((p, i) => {
-          const isDEM = p.text.includes("DEM") && (i === 1 || i === 3);
-          return (
-            <div key={i} style={{ ...S.card, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start", background: isDEM ? "#FDF0EE" : C.white, borderLeft: isDEM ? `4px solid ${C.danger}` : "1px solid rgba(26,82,118,0.05)" }}>
-              <span style={{ fontSize: 28 }}>{p.icon}</span>
-              <span style={{ fontSize: 22, lineHeight: 1.55, color: isDEM ? "#7A2E1A" : C.grayDark, fontWeight: isDEM ? 500 : 400 }}>{p.text}</span>
-            </div>
-          );
-        })}
+        {insights.map((p, i) => (
+          <div key={i} style={{ ...S.card, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start" }}>
+            <span style={{ fontSize: 28 }}>{p.icon}</span>
+            <span style={{ fontSize: 22, lineHeight: 1.55, color: C.grayDark }}>{p.text}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -475,9 +470,7 @@ function S14QR({ visible }) {
           <p style={{ fontSize: 18, color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase" }}>Escaneie o QR Code para acessar</p>
         </div>
         <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})` }} />
-        <div style={{ padding: 18, background: "#F0F6FF", borderRadius: 22, boxShadow: "0 8px 48px rgba(26,82,118,0.14)", border: "1px solid rgba(26,82,118,0.08)", display: "flex", alignItems: "center", justifyContent: "center", width: 300, height: 80 }}>
-          <span style={{ fontSize: 20, color: C.blue1, fontWeight: 600 }}>🔗 Acesse pelo link compartilhado</span>
-        </div>
+
         <p style={{ fontSize: 18, color: C.gray, maxWidth: 380, lineHeight: 1.65 }}>Sua opinião é essencial para construirmos juntos uma cultura de cuidado e bem-estar.</p>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <Petals size={30} opacity={0.65} />
