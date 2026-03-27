@@ -135,9 +135,9 @@ function S02({ visible }) {
       <h2 style={S.h1}>1. Introdução Geral</h2>
       <p style={S.sub}>Clique para expandir cada seção</p>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, flex: 1 }}>
-        <ExpandBox icon="🎯" title="Objetivo" color={C.blue2}><BulletList items={["Promover a saúde mental e gerenciar riscos psicossociais nas unidades.", "Avaliar percepções dos colaboradores sobre clima, demandas, liderança e ambiente.", "Subsidiar estratégias de intervenção e monitoramento contínuo."]} color={C.blue2} /></ExpandBox>
-        <ExpandBox icon="📊" title="Metodologia" color={C.teal}><BulletList items={["Instrumento: FRP-Br / COPSOQ II + MAE — referência internacional.", "Avaliação presencial com colaboradores de todos os setores.", "Escala de 1 a 7 — quanto maior, melhor a percepção.", "4 dimensões: REL, INF, DEM e MAE."]} color={C.teal} /></ExpandBox>
-        <ExpandBox icon="🏢" title="Unidades Avaliadas" color={C.green3}><BulletList items={["Teresina — ~67% de adesão.", "Caxias — 63 colaboradores (70,8%).", "Piripiri — ~72,4% de adesão.", "Picos — 102 colaboradores (86,4%).", "Floriano — ~68% de adesão."]} color={C.green3} /></ExpandBox>
+        <ExpandBox icon="🎯" title="Objetivo" color={C.blue2}><BulletList items={["Promover a saúde mental e gerenciar riscos psicossociais nas unidades.", "Avaliar percepções dos colaboradores sobre clima, demandas, liderança e ambiente, conforme recomenda a NR-01.", "Subsidiar estratégias de intervenção e monitoramento contínuo."]} color={C.blue2} /></ExpandBox>
+        <ExpandBox icon="📊" title="Metodologia" color={C.teal}><BulletList items={["Instrumento: FRP-Br / COPSOQ II + MAE — referência internacional.", "Escala de 1 a 7 — quanto maior, melhor a percepção.", "Todos os riscos psicossociais previstos na normativa foram divididos em 4 dimensões: REL, INF, DEM e MAE."]} color={C.teal} /></ExpandBox>
+        <ExpandBox icon="🏢" title="Unidades Avaliadas" color={C.green3}><BulletList items={["Teresina — 67% de adesão.", "Caxias — 70,8% de adesão.", "Piripiri — 72,4% de adesão.", "Picos — 86,4% de adesão.", "Floriano — 68% de adesão."]} color={C.green3} /></ExpandBox>
         <ExpandBox icon="📅" title="Período e Abrangência" color={C.blue1}><BulletList items={["Avaliações conduzidas em março de 2026.", "Cobertura das principais unidades operacionais da York.", "Resultados individuais e comparativos entre todas as unidades."]} color={C.blue1} /></ExpandBox>
       </div>
     </div>
@@ -286,7 +286,7 @@ function S09({ visible }) {
   const barData = ["rel", "inf", "dem", "mae"].map(d => ({ dim: DIM_SHORT[d], ...Object.fromEntries(UNITS.map(u => [u.name, u[d]])) }));
   const insights = [
     { icon: "📊", text: "Significado do trabalho (INF) é consistentemente o mais alto — de 5,2 a 5,5 — revelando forte identificação com as atividades." },
-    { icon: "🔍", text: "Demandas laborais (DEM) é o menor em todas as unidades — de 3,5 a 4,1 — reforçando necessidade de ações prioritárias." },
+    { icon: "🔍", text: "o (DEM) é o menor em todas as unidades — de 3,5 a 4,1 — reforçando necessidade de ações prioritárias." },
     { icon: "🏢", text: "Picos lidera em REL (5,0) e MAE (4,8), enquanto Teresina lidera em INF (5,5) e DEM (4,1)." },
     { icon: "⚡", text: "Floriano apresenta o menor DEM (3,5), junto com desafios em MAE (4,4), demandando atenção estrutural e operacional." },
   ];
@@ -306,13 +306,28 @@ function S09({ visible }) {
           </BarChart>
         </ResponsiveContainer>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-        {insights.map((p, i) => (
-          <div key={i} style={{ ...S.card, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start" }}>
-            <span style={{ fontSize: 28 }}>{p.icon}</span>
-            <span style={{ fontSize: 22, lineHeight: 1.55, color: C.grayDark }}>{p.text}</span>
+      <div style={{ ...S.card, marginBottom: 10, background: "#FDECEA", border: "2px solid #E8734A", borderLeft: `5px solid ${C.danger}`, padding: "12px 18px", display: "flex", alignItems: "center", gap: 14 }}>
+        <span style={{ fontSize: 36 }}>⚡</span>
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+            <span style={{ fontWeight: 800, fontSize: 22, color: C.danger, letterSpacing: "0.08em" }}>DEM — Demandas Laborais</span>
+            <span style={{ background: C.danger, color: "#fff", borderRadius: 20, padding: "2px 12px", fontSize: 18, fontWeight: 700 }}>Pior indicador universal</span>
           </div>
-        ))}
+          <span style={{ fontSize: 20, color: "#9B3E2A", lineHeight: 1.5 }}>
+            A dimensão <strong>Demandas Laborais</strong> é o indicador mais baixo em <strong>todas as unidades</strong> — variando de <strong>3,5 (Floriano)</strong> a <strong>4,1 (Teresina)</strong> — exigindo <strong>ações prioritárias e imediatas</strong> em toda a rede York.
+          </span>
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+        {insights.map((p, i) => {
+          const isDEM = p.text.includes("DEM") && (i === 1 || i === 3);
+          return (
+            <div key={i} style={{ ...S.card, padding: "10px 14px", display: "flex", gap: 8, alignItems: "flex-start", background: isDEM ? "#FDF0EE" : C.white, borderLeft: isDEM ? `4px solid ${C.danger}` : "1px solid rgba(26,82,118,0.05)" }}>
+              <span style={{ fontSize: 28 }}>{p.icon}</span>
+              <span style={{ fontSize: 22, lineHeight: 1.55, color: isDEM ? "#7A2E1A" : C.grayDark, fontWeight: isDEM ? 500 : 400 }}>{p.text}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -448,7 +463,6 @@ function S13({ visible }) {
   );
 }
 
-const QR_B64 = "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";
 
 function S14QR({ visible }) {
   return (
@@ -461,8 +475,8 @@ function S14QR({ visible }) {
           <p style={{ fontSize: 18, color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase" }}>Escaneie o QR Code para acessar</p>
         </div>
         <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})` }} />
-        <div style={{ padding: 18, background: C.white, borderRadius: 22, boxShadow: "0 8px 48px rgba(26,82,118,0.14)", border: "1px solid rgba(26,82,118,0.08)" }}>
-          <img src={`data:image/jpeg;base64,${QR_B64}`} alt="QR Code Mentimeter" style={{ width: 300, height: 300, display: "block", borderRadius: 8 }} />
+        <div style={{ padding: 18, background: "#F0F6FF", borderRadius: 22, boxShadow: "0 8px 48px rgba(26,82,118,0.14)", border: "1px solid rgba(26,82,118,0.08)", display: "flex", alignItems: "center", justifyContent: "center", width: 300, height: 80 }}>
+          <span style={{ fontSize: 20, color: C.blue1, fontWeight: 600 }}>🔗 Acesse pelo link compartilhado</span>
         </div>
         <p style={{ fontSize: 18, color: C.gray, maxWidth: 380, lineHeight: 1.65 }}>Sua opinião é essencial para construirmos juntos uma cultura de cuidado e bem-estar.</p>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -489,12 +503,10 @@ const SLIDES = [
   { comp: S11, title: "4. Próximos Passos" },
   { comp: S12, title: "5. Metas" },
   { comp: S13, title: "6. Encerramento" },
-  { comp: S14QR, title: "Enquete QR" },
-  { comp: null, title: "Enquete" },
+  { comp: S14QR, title: "Enquete" },
 ];
 
 const TOTAL = SLIDES.length;
-const MENTI_IDX = TOTAL - 1;
 
 const BASE_W = 1280;
 const BASE_H = 720;
@@ -523,34 +535,6 @@ export default function App() {
     return () => window.removeEventListener("keydown", h);
   }, [go]);
 
-  const isMenti = cur === MENTI_IDX;
-
-  const NavBar = (
-    <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, height: 56, display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "rgba(255,255,255,0.97)", backdropFilter: "blur(12px)", borderTop: "1px solid rgba(26,82,118,0.08)", zIndex: 9999 }}>
-      <button onClick={() => go(-1)} disabled={cur === 0} style={{ ...S.btn, opacity: cur === 0 ? 0.3 : 1 }}>‹</button>
-      <div style={{ display: "flex", gap: 4, margin: "0 10px", alignItems: "center" }}>
-        {SLIDES.map((sd, i) => <button key={i} onClick={() => setCur(i)} style={S.dot(i === cur)} title={sd.title} />)}
-      </div>
-      <button onClick={() => go(1)} disabled={cur === TOTAL - 1} style={{ ...S.btn, opacity: cur === TOTAL - 1 ? 0.3 : 1 }}>›</button>
-    </div>
-  );
-
-  if (isMenti) {
-    return (
-      <div style={{ width: "100vw", height: "100vh", background: C.white, fontFamily: F.body }}>
-        <iframe
-          sandbox="allow-popups allow-scripts allow-same-origin allow-presentation"
-          allowFullScreen
-          allowTransparency
-          frameBorder="0"
-          src="https://www.mentimeter.com/app/presentation/al5jq3zmrhhhia6zhxxir8k1s2zu7vhz/embed"
-          style={{ width: "100%", height: "calc(100vh - 56px)", display: "block", border: "none" }}
-        />
-        {NavBar}
-      </div>
-    );
-  }
-
   return (
     <div style={{ width: "100vw", height: "100vh", overflow: "hidden", background: C.bg, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.body }}>
       <div style={{ width: BASE_W, height: BASE_H, transform: `scale(${scale})`, transformOrigin: "center center", position: "relative", color: C.grayDark, overflow: "hidden" }}>
@@ -562,7 +546,7 @@ export default function App() {
           <div style={{ fontSize: 18, opacity: 0.7 }}>{SLIDES[cur].title}</div>
         </div>
         <div style={{ position: "relative", width: "100%", height: "100%" }}>
-          {SLIDES.slice(0, MENTI_IDX).map((sd, i) => {
+          {SLIDES.map((sd, i) => {
             const Comp = sd.comp;
             return <div key={i} style={{ pointerEvents: i === cur ? "auto" : "none" }}><Comp visible={i === cur} /></div>;
           })}
