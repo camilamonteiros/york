@@ -19,11 +19,11 @@ const DIM_ICONS = { rel: "🤝", inf: "✨", dem: "⚡", mae: "🏗️" };
 const DIM_COLORS = { rel: C.green2, inf: C.teal, dem: C.danger, mae: C.blue1 };
 
 const UNITS = [
-  { name: "Teresina", rel: 4.9, inf: 5.5, dem: 4.1, mae: 5.2, participation: 67, participationLabel: "~67% dos colaboradores", period: "Março de 2026", color: C.green2, positives: ["Significado do trabalho com média 5,5 — altamente favorável, indicando forte senso de propósito.", "Relações interpessoais com média 4,9 — favorável, com percepção positiva de suporte e colaboração.", "Meio ambiente e equipamentos com média 5,2 — condições favoráveis.", "Condições gerais favoráveis, especialmente no significado do trabalho e relações interpessoais."], attention: ["Demandas laborais com média 4,1 — necessita atenção e monitoramento contínuo.", "Elevada intensidade das demandas de trabalho.", "Organização e fluxo de tarefas requerem aprimoramento.", "Condições estruturais do ambiente laboral podem ser melhoradas."], risks: ["Elevada intensidade das demandas de trabalho.", "Organização e fluxo de tarefas.", "Condições estruturais do ambiente laboral."], actions: ["Programação de treinamentos mensais (comunicação, gestão de carga, stress, liderança emocional).", "Encontros que promovem diálogo, escuta ativa, reconhecimento e autoconhecimento.", "Enfoque na valorização do bem-estar e desenvolvimento socioemocional.", "Monitoramento contínuo para manter e avançar no cenário positivo."], outlook: "A unidade apresenta base sólida para um ambiente organizacional saudável. Expectativa de aprimoramento nas relações e gestão de demandas, com fortalecimento da cultura de cuidado, comunicação e colaboração." },
-  { name: "Caxias", rel: 4.8, inf: 5.2, dem: 3.7, mae: 4.5, participation: 70.8, participationLabel: "63 colaboradores (~70,8%)", period: "Março de 2026", color: C.blue1, positives: ["Significado do trabalho com média 5,2 — condições altamente favoráveis, fator protetivo.", "Relações interpessoais com média 4,8 — condições favoráveis de suporte e colaboração.", "Meio ambiente com média 4,5 — condições favoráveis com oportunidades de melhorias.", "Percepção do significado do trabalho elevada (5,3 na avaliação geral)."], attention: ["Demandas laborais com média 3,7 — exigem monitoramento devido ao ritmo e pressões operacionais.", "Demandas laborais abaixo da média (3,3 na avaliação geral).", "Relações interpessoais requerem monitoramento contínuo (4,2 na última avaliação).", "Ambiente físico e recursos apresentam oportunidades de aprimoramento."], risks: ["Intensidade das demandas: percepções de ritmo intenso, prazos rigorosos.", "Necessidade de fortalecer canais de comunicação e suporte gerencial.", "Condições estruturais: melhorias na organização do espaço e manutenção de equipamentos."], actions: ["Reforçar estratégias de gestão de demandas, incluindo distribuição de tarefas e priorização.", "Capacitar lideranças em competências socioemocionais, comunicação e suporte.", "Manter monitoramento contínuo, reforçando cultura de cuidado mútuo e autocuidado.", "Implementar melhorias estruturais no ambiente de trabalho e recursos materiais."], outlook: "Estrutura psicossocial globalmente favorável, especialmente no significado atribuído ao trabalho. Contudo, demandas laborais representam um ponto de atenção prioritário." },
-  { name: "Piripiri", rel: 4.8, inf: 5.2, dem: 3.7, mae: 4.5, participation: 72.4, participationLabel: "~72,4% de adesão", period: "Março de 2026", color: C.teal, positives: ["Significado do trabalho com média 5,2 — altamente favorável, fator protetivo.", "Relações interpessoais com média 4,8 — favorável, com forte senso de colaboração.", "Panorama geral positivo com forte senso de propósito e boas relações.", "Meio ambiente e equipamentos com média 4,5 — favorável."], attention: ["Demandas laborais com média 3,7 — requer monitoramento prioritário.", "Intensas demandas de trabalho, especialmente na logística.", "Organização e fluxo de atividades com necessidade de melhor coordenação.", "Condições estruturais do ambiente laboral com oportunidades de melhorias."], risks: ["Intensas demandas de trabalho, especialmente na logística.", "Organização e fluxo de atividades, com necessidade de melhor coordenação.", "Condições estruturais do ambiente laboral."], actions: ["Gestão de demandas: distribuição de tarefas e planejamento.", "Fortalecimento da liderança socioemocional e comunicação.", "Promover autocuidado, gerenciamento de emoções e cultura de apoio.", "Monitoramento contínuo dos fatores psicossociais."], outlook: "O panorama é positivo, com destaque para o forte senso de propósito e boas relações. A principal atenção recai sobre as demandas laborais, potencialmente relacionadas ao ritmo intenso e prazos." },
-  { name: "Picos", rel: 5.0, inf: 5.4, dem: 3.6, mae: 4.8, participation: 86.4, participationLabel: "102 colaboradores (86,4%)", period: "Março 2026 a Março 2027", color: C.blue2, positives: ["Significado do trabalho com média 5,4 — colaboradores atribuem alto valor às atividades.", "Relações interpessoais com média 5,0 — percepção de suporte e colaboração.", "Meio ambiente com média 4,8 — favorável, com possibilidades de aprimoramento.", "Maior adesão entre as unidades (86,4%), garantindo representatividade estatística."], attention: ["Demandas laborais com média 3,6 — requer monitoramento contínuo.", "Ritmo acelerado, volume de tarefas, prazos apertados, especialmente em logística e transporte.", "Organização do fluxo de trabalho: necessidade de melhor coordenação entre setores.", "Condições estruturais: melhorias na organização do espaço e na manutenção de equipamentos."], risks: ["Intensidade das demandas: maior percepção de pressão, necessidade de resposta rápida.", "Organização do trabalho: momentos de sobrecarga devido à dinâmica operacional.", "Condições físicas: adequação do ambiente e equipamentos para evitar desconfortos."], actions: ["Distribuição equilibrada de tarefas e planejamento de rotas realistas.", "Capacitações em competências socioemocionais para lideranças.", "Espaços de escuta, diálogo aberto e feedback contínuo.", "Organização e otimização do espaço de trabalho com manutenção preventiva.", "Avaliações regulares do clima e ações educativas para autogerenciamento do estresse."], outlook: "Compromisso da unidade com o bem-estar dos colaboradores e elevação da gestão de riscos psicossociais. Necessidade de continuidade das ações e monitoramento para garantir melhorias sustentáveis." },
-  { name: "Floriano", rel: 4.8, inf: 5.4, dem: 3.5, mae: 4.4, participation: 68, participationLabel: "~68% dos colaboradores", period: "Março de 2026", color: C.purple, positives: ["Significado do trabalho com média 5,4 — altamente favorável, colaboradores reconhecem a relevância de suas funções.", "Relações interpessoais com média 4,8 — favorável, com percepção positiva de liderança e colaboração.", "Forte sentimento de pertencimento institucional, motivação e senso de responsabilidade.", "Colaboradores demonstram engajamento e percepção positiva do valor social das atividades."], attention: ["Demandas laborais com média 3,5 — exigem monitoramento prioritário e ações imediatas.", "Ritmo de trabalho, volume de atividades e cumprimento de prazos impactam o equilíbrio psicossocial.", "Meio ambiente e equipamentos com média 4,4 — oportunidade de aprimoramento na organização dos recursos.", "Condições materiais de execução das atividades apresentam espaço para melhoria."], risks: ["Impacto das demandas laborais no equilíbrio psicossocial dos colaboradores.", "Características do transporte, distribuição e logística: alta demanda operacional e coordenação entre setores.", "Organização de recursos operacionais e condições estruturais do ambiente de trabalho."], actions: ["Monitoramento contínuo das demandas laborais e implementação de estratégias de gestão de carga.", "Fortalecimento das condições do ambiente de trabalho e recursos operacionais.", "Capacitações em competências socioemocionais para lideranças.", "Espaços de escuta ativa, diálogo e promoção do autocuidado."], outlook: "A unidade apresenta estrutura psicossocial favorável, com destaque para o significado do trabalho e relações interpessoais. As demandas laborais representam o principal ponto de atenção, com necessidade de ações focadas na gestão de carga e no equilíbrio entre produtividade e bem-estar." },
+  { name: "Teresina", rel: 4.9, inf: 5.5, dem: 4.1, mae: 5.2, participation: 67, participationLabel: "de adesão", period: "Março de 2026", color: C.green2, positives: ["Significado do trabalho com média 5,5 — altamente favorável, indicando forte senso de propósito.", "Relações interpessoais com média 4,9 — favorável, com percepção positiva de suporte e colaboração.", "Meio ambiente e equipamentos com média 5,2 — condições favoráveis.", "Condições gerais favoráveis, especialmente no significado do trabalho e relações interpessoais."], attention: ["Demandas laborais com média 4,1 — necessita atenção e monitoramento contínuo.", "Elevada intensidade das demandas de trabalho.", "Organização e fluxo de tarefas requerem aprimoramento.", "Condições estruturais do ambiente laboral podem ser melhoradas."], risks: ["Elevada intensidade das demandas de trabalho.", "Organização e fluxo de tarefas.", "Condições estruturais do ambiente laboral."], actions: ["Programação de treinamentos mensais (comunicação, gestão de carga, stress, liderança emocional).", "Encontros que promovem diálogo, escuta ativa, reconhecimento e autoconhecimento.", "Enfoque na valorização do bem-estar e desenvolvimento socioemocional.", "Monitoramento contínuo para manter e avançar no cenário positivo."], outlook: "A unidade apresenta base sólida para um ambiente organizacional saudável. Expectativa de aprimoramento nas relações e gestão de demandas, com fortalecimento da cultura de cuidado, comunicação e colaboração." },
+  { name: "Caxias", rel: 4.8, inf: 5.2, dem: 3.7, mae: 4.5, participation: 70.8, participationLabel: "de adesão", period: "Março de 2026", color: C.blue1, positives: ["Significado do trabalho com média 5,2 — condições altamente favoráveis, fator protetivo.", "Relações interpessoais com média 4,8 — condições favoráveis de suporte e colaboração.", "Meio ambiente com média 4,5 — condições favoráveis com oportunidades de melhorias.", "Percepção do significado do trabalho elevada (5,3 na avaliação geral)."], attention: ["Demandas laborais com média 3,7 — exigem monitoramento devido ao ritmo e pressões operacionais.", "Demandas laborais abaixo da média (3,3 na avaliação geral).", "Relações interpessoais requerem monitoramento contínuo (4,2 na última avaliação).", "Ambiente físico e recursos apresentam oportunidades de aprimoramento."], risks: ["Intensidade das demandas: percepções de ritmo intenso, prazos rigorosos.", "Necessidade de fortalecer canais de comunicação e suporte gerencial.", "Condições estruturais: melhorias na organização do espaço e manutenção de equipamentos."], actions: ["Reforçar estratégias de gestão de demandas, incluindo distribuição de tarefas e priorização.", "Capacitar lideranças em competências socioemocionais, comunicação e suporte.", "Manter monitoramento contínuo, reforçando cultura de cuidado mútuo e autocuidado.", "Implementar melhorias estruturais no ambiente de trabalho e recursos materiais."], outlook: "Estrutura psicossocial globalmente favorável, especialmente no significado atribuído ao trabalho. Contudo, demandas laborais representam um ponto de atenção prioritário." },
+  { name: "Piripiri", rel: 4.8, inf: 5.2, dem: 3.7, mae: 4.5, participation: 72.4, participationLabel: "de adesão", period: "Março de 2026", color: C.teal, positives: ["Significado do trabalho com média 5,2 — altamente favorável, fator protetivo.", "Relações interpessoais com média 4,8 — favorável, com forte senso de colaboração.", "Panorama geral positivo com forte senso de propósito e boas relações.", "Meio ambiente e equipamentos com média 4,5 — favorável."], attention: ["Demandas laborais com média 3,7 — requer monitoramento prioritário.", "Intensas demandas de trabalho, especialmente na logística.", "Organização e fluxo de atividades com necessidade de melhor coordenação.", "Condições estruturais do ambiente laboral com oportunidades de melhorias."], risks: ["Intensas demandas de trabalho, especialmente na logística.", "Organização e fluxo de atividades, com necessidade de melhor coordenação.", "Condições estruturais do ambiente laboral."], actions: ["Gestão de demandas: distribuição de tarefas e planejamento.", "Fortalecimento da liderança socioemocional e comunicação.", "Promover autocuidado, gerenciamento de emoções e cultura de apoio.", "Monitoramento contínuo dos fatores psicossociais."], outlook: "O panorama é positivo, com destaque para o forte senso de propósito e boas relações. A principal atenção recai sobre as demandas laborais, potencialmente relacionadas ao ritmo intenso e prazos." },
+  { name: "Picos", rel: 5.0, inf: 5.4, dem: 3.6, mae: 4.8, participation: 86.4, participationLabel: "de adesão", period: "Março 2026 a Março 2027", color: C.blue2, positives: ["Significado do trabalho com média 5,4 — colaboradores atribuem alto valor às atividades.", "Relações interpessoais com média 5,0 — percepção de suporte e colaboração.", "Meio ambiente com média 4,8 — favorável, com possibilidades de aprimoramento.", "Maior adesão entre as unidades (86,4%), garantindo representatividade estatística."], attention: ["Demandas laborais com média 3,6 — requer monitoramento contínuo.", "Ritmo acelerado, volume de tarefas, prazos apertados, especialmente em logística e transporte.", "Organização do fluxo de trabalho: necessidade de melhor coordenação entre setores.", "Condições estruturais: melhorias na organização do espaço e na manutenção de equipamentos."], risks: ["Intensidade das demandas: maior percepção de pressão, necessidade de resposta rápida.", "Organização do trabalho: momentos de sobrecarga devido à dinâmica operacional.", "Condições físicas: adequação do ambiente e equipamentos para evitar desconfortos."], actions: ["Distribuição equilibrada de tarefas e planejamento de rotas realistas.", "Capacitações em competências socioemocionais para lideranças.", "Espaços de escuta, diálogo aberto e feedback contínuo.", "Organização e otimização do espaço de trabalho com manutenção preventiva.", "Avaliações regulares do clima e ações educativas para autogerenciamento do estresse."], outlook: "Compromisso da unidade com o bem-estar dos colaboradores e elevação da gestão de riscos psicossociais. Necessidade de continuidade das ações e monitoramento para garantir melhorias sustentáveis." },
+  { name: "Floriano", rel: 4.8, inf: 5.4, dem: 3.5, mae: 4.4, participation: 68, participationLabel: "de adesão", period: "Março de 2026", color: C.purple, positives: ["Significado do trabalho com média 5,4 — altamente favorável, colaboradores reconhecem a relevância de suas funções.", "Relações interpessoais com média 4,8 — favorável, com percepção positiva de liderança e colaboração.", "Forte sentimento de pertencimento institucional, motivação e senso de responsabilidade.", "Colaboradores demonstram engajamento e percepção positiva do valor social das atividades."], attention: ["Demandas laborais com média 3,5 — exigem monitoramento prioritário e ações imediatas.", "Ritmo de trabalho, volume de atividades e cumprimento de prazos impactam o equilíbrio psicossocial.", "Meio ambiente e equipamentos com média 4,4 — oportunidade de aprimoramento na organização dos recursos.", "Condições materiais de execução das atividades apresentam espaço para melhoria."], risks: ["Impacto das demandas laborais no equilíbrio psicossocial dos colaboradores.", "Características do transporte, distribuição e logística: alta demanda operacional e coordenação entre setores.", "Organização de recursos operacionais e condições estruturais do ambiente de trabalho."], actions: ["Monitoramento contínuo das demandas laborais e implementação de estratégias de gestão de carga.", "Fortalecimento das condições do ambiente de trabalho e recursos operacionais.", "Capacitações em competências socioemocionais para lideranças.", "Espaços de escuta ativa, diálogo e promoção do autocuidado."], outlook: "A unidade apresenta estrutura psicossocial favorável, com destaque para o significado do trabalho e relações interpessoais. As demandas laborais representam o principal ponto de atenção, com necessidade de ações focadas na gestão de carga e no equilíbrio entre produtividade e bem-estar." },
 ];
 
 const statusOf = (v) => {
@@ -96,7 +96,7 @@ function ExpandBox({ icon, title, color, children }) {
         </div>
         <span style={{ fontSize: 24, color: C.grayLight, transition: "transform 0.3s", transform: open ? "rotate(180deg)" : "rotate(0)" }}>▼</span>
       </div>
-      <div style={{ maxHeight: open ? 600 : 0, opacity: open ? 1 : 0, transition: "max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease", marginTop: open ? 16 : 0, overflow: "hidden" }}>{children}</div>
+      <div style={{ maxHeight: open ? 1200 : 0, opacity: open ? 1 : 0, transition: "max-height 0.6s ease, opacity 0.4s ease, margin 0.4s ease", marginTop: open ? 16 : 0, overflowY: "auto", overflowX: "hidden" }}>{children}</div>
     </div>
   );
 }
@@ -109,6 +109,15 @@ function Expandable({ title, children, color = C.blue2, defaultOpen = false }) {
 function CTooltip({ active, payload, label }) {
   if (!active || !payload || !payload.length) return null;
   return (<div style={{ background: C.white, border: "1px solid #e0e0e0", borderRadius: 10, padding: "10px 14px", fontSize: 18, boxShadow: "0 4px 20px rgba(0,0,0,0.08)" }}><div style={{ fontWeight: 600, marginBottom: 4, color: C.grayDark, fontSize: 18 }}>{label}</div>{payload.map((p, i) => (<div key={i} style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 3 }}><span style={{ width: 8, height: 8, borderRadius: 4, background: p.fill || p.color, display: "inline-block" }} /><span style={{ color: C.gray }}>{p.name}:</span><span style={{ fontWeight: 600, color: C.grayDark }}>{p.value}</span></div>))}</div>);
+}
+
+function NR01Box({ items, color }) {
+  return (
+    <div style={{ background: `${color}0a`, borderRadius: 8, padding: "10px 14px", marginTop: 8 }}>
+      <span style={{ fontSize: 13, fontWeight: 700, color, letterSpacing: "0.08em", textTransform: "uppercase", display: "block", marginBottom: 8 }}>NR-01 — Fatores de Risco</span>
+      <BulletList items={items} color={color} />
+    </div>
+  );
 }
 
 function S01({ visible }) {
@@ -144,12 +153,59 @@ function S02({ visible }) {
   );
 }
 
+const NR01_ITEMS = {
+  rel: [
+    "Deficiência de suporte da liderança",
+    "Deficiência de comunicação organizacional",
+    "Iniquidade no tratamento organizacional",
+    "Conflitos interpessoais",
+    "Clima organizacional negativo",
+    "Assédio moral",
+    "Assédio sexual",
+    "Discriminação no ambiente de trabalho",
+  ],
+  dem: [
+    "Sobrecarga de trabalho",
+    "Exigência de ritmo elevado de trabalho",
+    "Pressão por metas e prazos",
+    "Insuficiência de tempo para tarefas",
+    "Alta demanda cognitiva",
+    "Alta demanda emocional",
+    "Exigência de esforço físico e mental",
+    "Fadiga ocupacional",
+    "Interferência do trabalho na vida pessoal",
+  ],
+  inf: [
+    "Baixa autonomia no trabalho",
+    "Baixa influência sobre as atividades",
+    "Ambiguidade de papéis",
+    "Baixa previsibilidade organizacional",
+    "Insegurança no trabalho",
+    "Desalinhamento de valores",
+    "Baixa percepção de significado do trabalho",
+    "Limitação ao desenvolvimento profissional",
+  ],
+  mae: [
+    "Insuficiência de equipamentos e ferramentas",
+    "Falhas em equipamentos",
+    "Deficiência de manutenção",
+    "Condições inadequadas de iluminação",
+    "Exposição a ruído",
+    "Condições térmicas inadequadas",
+    "Espaço físico inadequado",
+    "Organização inadequada do ambiente",
+    "Necessidade de improvisação operacional",
+    "Insegurança na operação de equipamentos",
+    "Interrupções no trabalho",
+  ],
+};
+
 function S03({ visible }) {
   const dims = [
-    { key: "rel", desc: "Importância do suporte da liderança, reconhecimento, gestão de conflitos, assédio moral e sexual, discriminação e preconceito.", dynamics: "Exercício de escuta ativa, simulações de situações de conflito e feedback construtivo.", objectives: "Melhorar a comunicação, promover apoio mútuo, fortalecer a cultura de respeito." },
-    { key: "dem", desc: "Gerenciamento do volume de trabalho, prazos, sobrecarga emocional, fadiga e estresse.", dynamics: "Oficinas de planejamento de rotina, técnicas de respiração e resiliência emocional.", objectives: "Ensinar estratégias de gerenciamento de tarefas, controle de estresse, equilíbrio trabalho-vida." },
-    { key: "inf", desc: "Claridade de funções, autonomia, alinhamento de valores, reconhecimento e percepção de propósito.", dynamics: "Reflexão sobre propósito do trabalho, discussão sobre valores pessoais vs organizacionais.", objectives: "Aumentar engajamento, promover autonomia e compreensão do papel na organização." },
-    { key: "mae", desc: "Condições físicas do ambiente, ergonomia, segurança, uso correto de equipamentos e EPI.", dynamics: "Treinamentos práticos de equipamentos, inspeções participativas, sugestões de melhorias.", objectives: "Garantir uso adequado de EPI, promover melhorias no ambiente físico." },
+    { key: "rel", desc: "Importância do suporte da liderança, reconhecimento, gestão de conflitos, assédio moral e sexual, discriminação e preconceito." },
+    { key: "dem", desc: "Gerenciamento do volume de trabalho, prazos, sobrecarga emocional, fadiga e estresse." },
+    { key: "inf", desc: "Claridade de funções, autonomia, alinhamento de valores, reconhecimento e percepção de propósito." },
+    { key: "mae", desc: "Condições físicas do ambiente, ergonomia, segurança, uso correto de equipamentos e EPI." },
   ];
   return (
     <div style={{ ...S.slide(), opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(30px)" }}>
@@ -158,15 +214,8 @@ function S03({ visible }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, flex: 1 }}>
         {dims.map((d, i) => (
           <ExpandBox key={i} icon={DIM_ICONS[d.key]} title={DIM_LABELS[d.key]} color={DIM_COLORS[d.key]}>
-            <p style={{ fontSize: 24, lineHeight: 1.55, color: C.gray, marginBottom: 10 }}>{d.desc}</p>
-            <div style={{ background: `${DIM_COLORS[d.key]}0a`, borderRadius: 8, padding: "8px 12px", marginBottom: 8 }}>
-              <span style={{ fontSize: 20, fontWeight: 600, color: DIM_COLORS[d.key] }}>Objetivos: </span>
-              <span style={{ fontSize: 20, color: C.grayDark }}>{d.objectives}</span>
-            </div>
-            <div style={{ background: `${DIM_COLORS[d.key]}0a`, borderRadius: 8, padding: "8px 12px" }}>
-              <span style={{ fontSize: 20, fontWeight: 600, color: DIM_COLORS[d.key] }}>Dinâmica: </span>
-              <span style={{ fontSize: 20, color: C.grayDark }}>{d.dynamics}</span>
-            </div>
+            <p style={{ fontSize: 18, lineHeight: 1.55, color: C.gray, marginBottom: 8 }}>{d.desc}</p>
+            <NR01Box items={NR01_ITEMS[d.key]} color={DIM_COLORS[d.key]} />
           </ExpandBox>
         ))}
       </div>
@@ -220,10 +269,6 @@ function UnitSlide({ visible, unit, index }) {
         <Expandable title={`⚠️ Pontos de Atenção (${u.attention.length})`} color={C.warn}><BulletList items={u.attention} color={C.warn} /></Expandable>
         <Expandable title={`🔴 Riscos Prioritários (${u.risks.length})`} color={C.danger}><BulletList items={u.risks} color={C.danger} /></Expandable>
         <Expandable title={`🎯 Ações e Estratégias (${u.actions.length})`} color={C.blue1}><BulletList items={u.actions} color={C.blue1} /></Expandable>
-        <div style={{ marginTop: 6, padding: "8px 12px", background: `${u.color}08`, borderRadius: 8, borderLeft: `3px solid ${u.color}` }}>
-          <span style={{ fontSize: 24, fontWeight: 600, color: u.color }}>Perspectiva: </span>
-          <span style={{ fontSize: 24, color: C.grayDark, lineHeight: 1.5 }}>{u.outlook}</span>
-        </div>
       </div>
     </div>
   );
@@ -389,9 +434,9 @@ function S11({ visible }) {
 
 function S12({ visible }) {
   const goals = [
-    { metric: "Demandas Laborais", current: "3,5 – 4,1", target: "≥ 4,5", icon: "📈", desc: "Elevação do indicador DEM em todas as unidades." },
-    { metric: "Relações Interpessoais", current: "4,8 – 5,0", target: "≥ 5,2", icon: "🤝", desc: "Fortalecimento do suporte e comunicação." },
-    { metric: "Meio Ambiente", current: "4,4 – 5,2", target: "≥ 5,0", icon: "🏢", desc: "Melhorias estruturais e manutenção." },
+    { metric: "Demandas Laborais", current: "3,5 – 4,1", target: "≥ 6,0", icon: "📈", desc: "Elevação do indicador DEM em todas as unidades." },
+    { metric: "Relações Interpessoais", current: "4,8 – 5,0", target: "≥ 6,0", icon: "🤝", desc: "Fortalecimento do suporte e comunicação." },
+    { metric: "Meio Ambiente", current: "4,4 – 5,2", target: "≥ 5,5", icon: "🏢", desc: "Melhorias estruturais e manutenção." },
     { metric: "Adesão à Avaliação", current: "67 – 86,4%", target: "≥ 85%", icon: "📊", desc: "Maior representatividade estatística." },
   ];
   const tools = ["Questionários periódicos (FRP-Br / COPSOQ).", "Reuniões de alinhamento mensais.", "Indicadores de clima trimestrais.", "Avaliações semestrais de evolução.", "Relatórios de acompanhamento.", "Grupos de escuta mensal."];
@@ -432,33 +477,6 @@ function S12({ visible }) {
   );
 }
 
-function S13({ visible }) {
-  const commitments = ["Compromisso da liderança com a cultura de cuidado e atenção à saúde mental.", "Necessidade de participação ativa de todos na implementação das ações.", "Continuidade das ações e do monitoramento para melhorias sustentáveis.", "Compromisso com o bem-estar dos colaboradores e elevação da gestão de riscos.", "Impacto esperado na produtividade, clima organizacional e sustentabilidade."];
-  return (
-    <div style={{ ...S.slide(C.white), opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(30px)", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
-      <Petals size={120} opacity={0.45} style={{ margin: "0 auto 20px" }} />
-      <h2 style={{ fontWeight: 700, fontSize: 32, color: C.blue2, maxWidth: 500, lineHeight: 1.4, marginBottom: 12 }}>6. Encerramento e Compromisso</h2>
-      <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})`, margin: "0 auto 20px" }} />
-      <div style={{ ...S.card, maxWidth: 520, textAlign: "left", margin: "0 auto 20px" }}>
-        {commitments.map((c, i) => (
-          <div key={i} style={{ display: "flex", gap: 10, marginBottom: 8, alignItems: "flex-start" }}>
-            <span style={{ width: 6, height: 6, borderRadius: 3, background: i < 2 ? C.blue1 : C.teal, marginTop: 6, flexShrink: 0 }} />
-            <span style={{ fontSize: 24, lineHeight: 1.6, color: C.grayDark }}>{c}</span>
-          </div>
-        ))}
-      </div>
-      <p style={{ fontSize: 24, color: C.gray, maxWidth: 420, lineHeight: 1.7, fontStyle: "italic" }}>"Construindo juntos uma cultura de cuidado, comunicação e responsabilidade mútua."</p>
-      <div style={{ marginTop: 28 }}>
-        <Petals size={80} opacity={0.4} style={{ margin: "0 auto 8px" }} />
-        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 28, color: C.gray, letterSpacing: "0.14em" }}>CUIDARTE<span style={{ fontSize: 16, verticalAlign: "super" }}>®</span></p>
-        <p style={{ fontFamily: F.logo, fontWeight: 300, fontSize: 18, color: C.grayLight, letterSpacing: "0.22em" }}>TERAPIAS INTEGRADAS</p>
-      </div>
-      <p style={{ fontSize: 20, color: C.grayLight, marginTop: 16 }}>Cuidarte Mind Corporativo — York · Março 2026</p>
-    </div>
-  );
-}
-
-
 function S14QR({ visible }) {
   return (
     <div style={{ ...S.slide(C.white), opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(30px)", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
@@ -470,7 +488,6 @@ function S14QR({ visible }) {
           <p style={{ fontSize: 18, color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase" }}>Escaneie o QR Code para acessar</p>
         </div>
         <div style={{ width: 50, height: 2, background: `linear-gradient(90deg, ${C.green2}, ${C.blue1})` }} />
-
         <p style={{ fontSize: 18, color: C.gray, maxWidth: 380, lineHeight: 1.65 }}>Sua opinião é essencial para construirmos juntos uma cultura de cuidado e bem-estar.</p>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <Petals size={30} opacity={0.65} />
@@ -495,7 +512,6 @@ const SLIDES = [
   { comp: S10, title: "Riscos" },
   { comp: S11, title: "4. Próximos Passos" },
   { comp: S12, title: "5. Metas" },
-  { comp: S13, title: "6. Encerramento" },
   { comp: S14QR, title: "Enquete" },
 ];
 
